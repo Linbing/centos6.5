@@ -10,16 +10,20 @@ import pexpect
 
 
 
-def ssh_cmd(ip,passwd,cmd):
+def ssh_cmd(ip,user,passwd,cmd):
     ret = -1;
-    #ssh = pexpect.spawn('ssh root@%s "%s"' %(ip,cmd))
-    ssh = pexpect.spawn('ssh root@192.168.40.244')
+    #ssh = pexpect.spawn('ssh lb@%s "%s"' %(ip,cmd))
+    ssh = pexpect.spawn('ssh %s@%s "%s"' %(user, ip, cmd))
+#    ssh = pexpect.spawn('ssh lb@192.168.31.246 "touch lbtest.c"')
     try:
+        print "go-------"
         i = ssh.expect(['password:','continue connecting (yes/no)?'],timeout=5)
+        print '------'
+        print i
         if i == 0:
-	    print "yes is 00000"
+            print "yes is 00000"
             ssh.sendline(passwd)
-	    ssh.interact()
+	       # ssh.interact()
         elif i== 1:
             ssh.sendline('yes\n')
             ssh.expect('password: ')
@@ -28,6 +32,7 @@ def ssh_cmd(ip,passwd,cmd):
             r=ssh.read()
             print r
             ret = 0
+#	    ssh.interact()
     except pexpect.EOF:
         print "EOF"
         ssh.close()
@@ -42,4 +47,4 @@ def ssh_cmd(ip,passwd,cmd):
 
 if __name__=="__main__":
     print '---------start---------'
-    ssh_cmd('192.168.40.245','root','touch a.c')
+    ssh_cmd('192.168.31.246','lb','root','touch aaaaaaaaaaa.c')
