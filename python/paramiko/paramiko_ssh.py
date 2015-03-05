@@ -34,19 +34,18 @@ def ssh_run(ip, username, passwd, cmd):
 
 
 if __name__=="__main__":
-    print '-----'
     cmd=['touch aaa.ccc']
     username="hadoop"
     passwd="lb"
     threads=[]
     ip_a=['46','225','226','227']
     #ip='192.168.40.46'
-    print "begin......"
     for i in ip_a:
         ip='192.168.40.'+str(i)
-        print ip
-        a=threading.Thread(target=ssh_run,args=(ip,username,passwd,cmd))
-        a.start()
+        #print ip
+        #a=threading.Thread(target=ssh_run,args=(ip,username,passwd,cmd))
+        #a.start()
 
-#a=threading.Thread(target=ssh_run,args=(ip,username,passwd,cmd))
+    #a=threading.Thread(target=ssh_run,args=('192.168.40.244','root','root',cmd))
+    #a=threading.Thread(target=ssh_run,args=('192.168.40.47','hadoop','lb',cmd))
     #a.start()
