@@ -10,7 +10,7 @@
 
 #wget http://www.lag.net/paramiko/download/paramiko-1.7.7.1.tar.gz
 #wget http://ftp.dlitz.net/pub/dlitz/crypto/pycrypto/pycrypto-2.4.1.tar.gz
-
+#sudo yum install python-devel.x86_64
 function install()
 {   
     name=$1
