@@ -17,13 +17,14 @@ def ssh_cmd(ip,user,passwd,cmd):
 #    ssh = pexpect.spawn('ssh lb@192.168.31.246 "touch lbtest.c"')
     try:
         print "go-------"
-        i = ssh.expect(['password:','continue connecting (yes/no)?'],timeout=5)
-        print '------'
+        i = ssh.expect(['password: ','continue connecting (yes/no)?'],timeout=5)
         print i
+        #print ssh.read()
         if i == 0:
             print "yes is 00000"
             ssh.sendline(passwd)
 	       # ssh.interact()
+            ssh.sendline(cmd)
         elif i== 1:
             ssh.sendline('yes\n')
             ssh.expect('password: ')
@@ -47,4 +48,5 @@ def ssh_cmd(ip,user,passwd,cmd):
 
 if __name__=="__main__":
     print '---------start---------'
-    ssh_cmd('192.168.31.246','lb','root','touch aaaaaaaaaaa.c')
+    #ssh_cmd('192.168.40.47','hadoop','lb','touch aaaaaaaaaaa.c')
+    ssh_cmd('192.168.40.244','root','root','touch aaaaaaaaaaa.c')
