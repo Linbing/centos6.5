@@ -1,0 +1,8 @@
+<collection name="Semptian cluser">
+    <host hostname="master">
+        <ip>192.168.40.11</ip>
+    </host>
+    <host hostname="slave1">
+        <ip>192.168.40.12</ip>
+    </host>
+</collection>
