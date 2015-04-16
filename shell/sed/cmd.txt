@@ -1,0 +1,4 @@
+
+
+sed "s/my/linbing/g" test.txt > out.txt
+sed -i "s/my/linbing/g" test.txt
