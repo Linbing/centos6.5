@@ -10,6 +10,7 @@ import pexpect
 
 
 
+
 def ssh_cmd(ip,user,passwd,cmd):
     ret = -1;
     #ssh = pexpect.spawn('ssh lb@%s "%s"' %(ip,cmd))
